@@ -5,8 +5,8 @@ import { PlanDuration } from "~/lib/interfaces/planduration.inerface";
 
 const TabPlan = () => {
   return (
-    <Tabs defaultValue="monthly" className=" w-[420px]">
-      <TabsList className="grid w-full grid-cols-2 ">
+    <Tabs defaultValue="monthly" className="w-full">
+      <TabsList className="mx-auto grid w-[400px] grid-cols-2">
         <TabsTrigger value="monthly">Monthly</TabsTrigger>
         <TabsTrigger value="yearly">
           Yearly
@@ -15,7 +15,7 @@ const TabPlan = () => {
           </Badge>
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="monthly">
+      <TabsContent value="monthly" className="">
         <PlanCards duration={PlanDuration.Monthly} />
       </TabsContent>
       <TabsContent value="yearly">
