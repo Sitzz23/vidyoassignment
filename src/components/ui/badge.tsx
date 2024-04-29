@@ -15,7 +15,7 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-red-500 text-neutral-50 hover:bg-red-500/80 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/80",
         outline: "text-neutral-950 dark:text-neutral-50",
-        accent: "text-neutral-950 border-transparent bg-[#b7f564] font-normal",
+        accent: "text-neutral-950 border-transparent bg-[#b7f564] font-medium",
       },
     },
     defaultVariants: {
