@@ -3,8 +3,8 @@ import Landing from "./_components/landing";
 export default function HomePage() {
   return (
     <main>
-      <div className="min-w-screen relative m-2 flex h-[50rem] items-center justify-center rounded-lg bg-[#F5F7F2] bg-dot-white">
-        <div className="pointer-events-none absolute inset-0 top-0 flex items-center justify-center rounded-lg bg-[#F5F7F2] [mask-image:linear-gradient(to_top,transparent_20%,white)]"></div>
+      <div className="min-w-screen relative m-2 flex min-h-screen items-start justify-start rounded-lg bg-[#F5F7F2] bg-dot-white">
+        <div className="pointer-events-none absolute inset-0 top-0 flex h-1/6 items-center justify-start rounded-lg bg-[#F5F7F2] [mask-image:linear-gradient(to_top,transparent_20%,white)]"></div>
         <Landing />
       </div>
     </main>
