@@ -59,17 +59,19 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
       </div>
       <div className="">
         {duration === PlanDuration.Monthly ? (
-          <div className="mx-auto grid max-w-sm grid-cols-1 items-start gap-4 md:grid-cols-2 lg:max-w-none lg:grid-cols-4">
+          <div className=" mx-auto grid max-w-sm grid-cols-1 gap-4 md:grid-cols-2 lg:max-w-none lg:grid-cols-4">
             {Object.keys(data.monthly)
               // .slice(0, 3)
               .map((plan, index) => (
-                <div key={index}>
+                <div key={index} className="min-h-full">
                   <Card
-                    className={
-                      plan === "growth"
-                        ? "bg-[#252521] text-[#F6F6F2]"
-                        : "bg-white"
-                    }
+                    className={`
+                     ${
+                       plan === "growth"
+                         ? "bg-[#252521] text-[#F6F6F2]"
+                         : "bg-white"
+                     } h-full
+                    `}
                   >
                     <CardHeader>
                       <CardTitle
@@ -95,7 +97,7 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                         <CardDescription>/month</CardDescription>
                       </div>
                     </CardHeader>
-                    <CardContent className="mt-4">
+                    <CardContent className="mt-4 flex-grow">
                       {plan === "free" ? (
                         <Button variant={"default"} className="w-full" disabled>
                           Start for free
