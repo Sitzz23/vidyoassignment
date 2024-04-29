@@ -1,6 +1,7 @@
 interface Plan {
   title: string;
   desc: string;
+  cost: number | null;
   features: string[];
 }
 
@@ -42,21 +43,25 @@ const data = {
     free: {
       title: "Free",
       desc: "",
+      cost: 0,
       features: features.free,
     },
     essential: {
       title: "Essential",
       desc: "",
+      cost: 35,
       features: features.essential,
     },
     growth: {
       title: "Growth",
       desc: "",
+      cost: 50,
       features: features.growth,
     },
     custom: {
       title: "Custom",
       desc: "",
+      cost: null,
       features: features.custom,
     },
   } as MonthlyYearlyData,
@@ -64,21 +69,25 @@ const data = {
     free: {
       title: "Free",
       desc: "",
+      cost: 0,
       features: features.free,
     },
     essential: {
       title: "Essential",
       desc: "Billed annually at 67% off",
+      cost: 14,
       features: features.essential,
     },
     growth: {
       title: "Growth",
       desc: "Billed annually at 62% off",
+      cost: 16.5,
       features: features.growth,
     },
     custom: {
       title: "Custom",
       desc: "Billed annually at 65% off",
+      cost: null,
       features: features.custom,
     },
   } as MonthlyYearlyData,
