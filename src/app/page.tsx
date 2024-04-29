@@ -1,9 +1,10 @@
 import Balancer from "react-wrap-balancer";
+import TabPlan from "~/components/tabplan";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center space-y-6 bg-[#F5F7F2]  lg:py-28">
-      <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
+    <main className=" min-w-screen m-2 flex min-h-screen flex-col items-center justify-start space-y-6 rounded-md bg-[#F5F7F2] lg:py-28">
+      <div className="container flex flex-col items-center gap-5 text-center">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           <Balancer>Save 10x time & effort with us</Balancer>
         </h1>
@@ -13,6 +14,7 @@ export default function HomePage() {
           </Balancer>
         </p>
       </div>
+      <TabPlan />
     </main>
   );
 }
