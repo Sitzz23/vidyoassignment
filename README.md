@@ -1,7 +1,7 @@
 # Todo
 
-- [ ] Deploy project
-- [ ] Scaffold project
+- [x] Deploy project
+- [x] Scaffold project
 - [ ] hero section
 - [ ] plan slider and cards
 - [ ] table scaffold
