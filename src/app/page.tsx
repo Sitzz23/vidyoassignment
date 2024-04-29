@@ -1,5 +1,5 @@
 import Balancer from "react-wrap-balancer";
-import TabPlan from "~/components/tabplan";
+import TabPlan from "~/app/_components/tabplan";
 
 export default function HomePage() {
   return (
