@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Landing from "./_components/landing";
 
 export default function HomePage() {
   return (
     <main>
       <div className="min-w-screen relative m-2 flex h-[50rem] items-center justify-center bg-[#F5F7F2] bg-dot-white">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#F5F7F2] [mask-image:linear-gradient(to_bottom,transparent_20%,white)]"></div>
         <Landing />
       </div>
     </main>
