@@ -1,3 +1,11 @@
+interface Plan {
+  title: string;
+  desc: string;
+  features: string[];
+}
+
+type MonthlyYearlyData = Record<string, Plan>;
+
 const features = {
   free: [
     "75 mins per month",
@@ -9,7 +17,7 @@ const features = {
     "Everything in Free plan",
     "200 - 500 mins per month",
     "1080p render quality",
-    "Import with integrations (Drive, Dropbox, Box)",
+    "Import with integrations",
     "Intelliclips, short videos & chapters",
   ],
   growth: [
@@ -51,7 +59,7 @@ const data = {
       desc: "",
       features: features.custom,
     },
-  },
+  } as MonthlyYearlyData,
   yearly: {
     free: {
       title: "Free",
@@ -73,7 +81,7 @@ const data = {
       desc: "Billed annually at 65% off",
       features: features.custom,
     },
-  },
+  } as MonthlyYearlyData,
 };
 
 export default data;
