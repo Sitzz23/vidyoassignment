@@ -2,7 +2,7 @@
 
 - [x] Deploy project
 - [x] Scaffold project
-- [ ] hero section
+- [x] hero section
 - [ ] plan slider and cards
 - [ ] table scaffold
 - [ ] table row accordion
