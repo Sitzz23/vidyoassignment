@@ -86,7 +86,7 @@ const data = {
     },
     custom: {
       title: "Custom",
-      desc: "42%",
+      desc: "42% off",
       cost: null,
       features: features.custom,
     },
