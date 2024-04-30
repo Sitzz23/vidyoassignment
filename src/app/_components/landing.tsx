@@ -11,12 +11,12 @@ const Landing = () => {
     setIsOpen((prevState) => !prevState);
   }
   return (
-    <div className="z-20 m-2 mx-auto flex min-h-screen w-[75%] flex-col items-center justify-start space-y-6 lg:py-28">
+    <div className="z-20 m-2 mx-auto flex min-h-screen max-w-[85%] flex-col items-center justify-start space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
       <div className="container mb-2 flex flex-col items-center gap-5 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           <Balancer>Save 10x time & effort with us</Balancer>
         </h1>
-        <p className="leading-normal text-secondary-foreground sm:text-xl sm:leading-8">
+        <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
           <Balancer>
             Pay only for upload minutes. Download unlimited videos.
           </Balancer>
@@ -26,7 +26,7 @@ const Landing = () => {
       <div className="flex w-full flex-col items-center gap-8 pt-4">
         <Button
           variant={"outline"}
-          className="w-2/12 bg-[#F5F7F2] hover:bg-[#FAFAF8]"
+          className=" bg-[#F5F7F2] hover:bg-[#FAFAF8]"
           onClick={() => toggleIsOpen()}
         >
           View all features{" "}

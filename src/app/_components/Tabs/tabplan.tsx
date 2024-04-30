@@ -5,9 +5,9 @@ import { PlanDuration } from "~/lib/interfaces/planduration.inerface";
 
 const TabPlan = () => {
   return (
-    <div className="w-full">
+    <div className=" w-full">
       <Tabs defaultValue="monthly" className="w-full">
-        <TabsList className="mx-auto grid w-[400px] grid-cols-2">
+        <TabsList className="mx-auto grid w-[90%] grid-cols-2 md:w-[55%]">
           <TabsTrigger value="monthly">Monthly</TabsTrigger>
           <TabsTrigger value="yearly">
             Yearly

@@ -19,7 +19,7 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 import Balancer from "react-wrap-balancer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -32,10 +32,22 @@ import {
 const PlanCards = ({ duration }: { duration: PlanDuration }) => {
   const planData =
     duration === PlanDuration.Monthly ? data.monthly : data.yearly;
+  const [planName, setPlanName] = useState("growth");
 
   const [customCost, setCustomCost] = useState(
     duration === PlanDuration.Monthly ? 52 : 19,
   );
+  const [value, setValue] = useState([125]);
+
+  useEffect(() => {
+    if (value[0]! >= 200) {
+      console.log("reached 200");
+      setPlanName("custom");
+    }
+    if (value[0]! < 200) {
+      setPlanName("growth");
+    }
+  }, [value]);
 
   function newMonthCost(selectedMins: number) {
     const costPerMin = duration === PlanDuration.Monthly ? 5.8 : 2.1;
@@ -43,21 +55,21 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
     setCustomCost(cost);
   }
 
-  const [value, setValue] = useState([125]);
   return (
     <div className="mt-8 flex flex-col gap-8">
-      <div className="flex items-center justify-between gap-8">
-        <p className="text-xl">
+      <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-between">
+        <p className=" text-center text-base sm:text-left md:text-left md:text-xl lg:text-left">
           <Balancer>
             Suggesting an ideal plan for producing around
             <span className="font-semibold text-[#943DEC]">
-              &nbsp;{value}&nbsp;
+              {" "}
+              &nbsp;{value}&nbsp;{" "}
             </span>
             clips monthly
           </Balancer>
         </p>
-        <div className="flex w-full items-center justify-end gap-4">
-          <span className="text-xs text-[#61615B]">50</span>
+        <div className="flex w-full items-center justify-center gap-4 md:justify-end">
+          <span className=" text-xs text-[#61615B] md:inline">50</span>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -74,21 +86,21 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <span className="text-xs text-[#61615B]">200+</span>
+          <span className=" text-xs text-[#61615B] md:inline">200+</span>
         </div>
       </div>
-      <div className="mx-auto grid max-w-sm grid-cols-1 gap-4 md:grid-cols-2 lg:max-w-none lg:grid-cols-4">
+      <div className="mx-auto grid max-w-sm grid-cols-1 gap-4 md:max-w-[64rem] md:grid-cols-2 lg:max-w-none lg:grid-cols-4">
         {Object.keys(planData).map((plan, index) => (
           <div key={index} className="min-h-full">
             <Card
               className={`${
-                plan === "growth" ? "bg-[#252521] text-[#F6F6F2]" : "bg-white"
+                plan === planName ? "bg-[#252521] text-[#F6F6F2]" : "bg-white"
               } h-full`}
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base font-medium tracking-[0.1px]">
                   {planData[plan]?.title}
-                  {plan === "growth" && (
+                  {plan === planName && (
                     <Badge variant="accent" className="rounded-md text-xs">
                       Recommended
                     </Badge>
@@ -117,7 +129,7 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                   </Button>
                 ) : (
                   <Button
-                    variant={plan === "growth" ? "accent" : "outline"}
+                    variant={plan === planName ? "accent" : "outline"}
                     className={`w-full`}
                   >
                     Choose this plan
@@ -141,16 +153,20 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
               </div>
               <CardContent className="flex flex-col gap-4">
                 {plan === "custom" && (
-                  <div className="flex flex-col justify-start gap-1">
+                  <div className={`flex flex-col justify-start gap-1  `}>
                     <span className="text-sm">Select minutes</span>
                     <Select
                       defaultValue="900"
                       onValueChange={(value) => newMonthCost(Number(value))}
                     >
-                      <SelectTrigger className="w-full">
+                      <SelectTrigger
+                        className={`${plan === planName ? "bg-[#252521] text-[#F6F6F2]" : "bg-white"} w-full`}
+                      >
                         <SelectValue placeholder="Select minutes" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent
+                        className={`${plan === planName ? "bg-[#252521] text-[#F6F6F2]" : "bg-white"}`}
+                      >
                         <SelectGroup>
                           <SelectItem value="900">900 mins</SelectItem>
                           <SelectItem value="1200">1200 mins</SelectItem>
