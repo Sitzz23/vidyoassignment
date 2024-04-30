@@ -4,6 +4,11 @@ export default function HomePage() {
   return (
     <main>
       <div className="min-w-screen relative m-2 flex min-h-screen items-start justify-start rounded-lg bg-[#F5F7F2] bg-dot-white">
+        <div className="fixed bottom-10 left-8 z-[999]">
+          <span className=" rounded-full border-[10px] border-zinc-900 bg-white px-[5px]  text-sm">
+            ?
+          </span>
+        </div>
         <div className="pointer-events-none absolute inset-0 top-0 flex h-1/6 items-center justify-start rounded-lg bg-[#F5F7F2] [mask-image:linear-gradient(to_top,transparent_20%,white)]"></div>
         <Landing />
       </div>
