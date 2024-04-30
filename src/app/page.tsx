@@ -3,7 +3,7 @@ import Landing from "./_components/landing";
 export default function HomePage() {
   return (
     <main>
-      <div className="min-w-screen relative m-2 flex min-h-screen items-start justify-start rounded-lg bg-[#F5F7F2] bg-dot-white">
+      <div className="min-w-screen relative mx-2 mb-2 flex min-h-screen items-start justify-start rounded-lg bg-[#F5F7F2] bg-dot-white">
         <div className="fixed bottom-10 left-8 z-[999]">
           <span className=" rounded-full border-[10px] border-zinc-900 bg-white px-[5px]  text-sm">
             ?
