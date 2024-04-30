@@ -114,8 +114,8 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                   </Button>
                 ) : (
                   <Button
-                    variant={plan === "growth" ? "default" : "outline"}
-                    className={`w-full ${plan === "growth" ? "bg-[#b7f564] text-zinc-950" : "text-zinc-950"}`}
+                    variant={plan === "growth" ? "accent" : "outline"}
+                    className={`w-full`}
                   >
                     Choose this plan
                     <svg
