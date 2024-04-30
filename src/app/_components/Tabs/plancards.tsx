@@ -1,5 +1,11 @@
 "use client";
-import { Card, CardHeader, CardTitle, CardContent } from "~/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardDescription,
+} from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import data from "./CardData";
 import { PlanDuration } from "~/lib/interfaces/planduration.inerface";
@@ -26,7 +32,7 @@ import {
 const PlanCards = ({ duration }: { duration: PlanDuration }) => {
   const planData =
     duration === PlanDuration.Monthly ? data.monthly : data.yearly;
-
+  const customCost = 99;
   const [value, setValue] = useState([125]);
   return (
     <div className="mt-8 flex flex-col gap-8">
@@ -79,11 +85,18 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                   )}
                 </CardTitle>
                 <div className="flex items-baseline gap-1">
-                  <CardTitle className="pt-2 text-4xl font-bold">
-                    USD&nbsp;{planData[plan]?.cost}
+                  <CardTitle className="pt-2 text-3xl font-bold">
+                    USD&nbsp;
+                    {plan === "custom" ? customCost : planData[plan]?.cost}
                   </CardTitle>
                   <CardTitle className="text-sm">/month</CardTitle>
                 </div>
+                {planData === data.yearly && plan !== "free" && (
+                  <CardDescription className="text-xs">
+                    Billed annually at{" "}
+                    <strong>{planData[plan]?.desc} off</strong>
+                  </CardDescription>
+                )}
               </CardHeader>
               <CardContent className="mt-4 flex-grow">
                 {plan === "free" ? (
@@ -166,26 +179,3 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
 };
 
 export default PlanCards;
-
-// duration === PlanDuration.Monthly ?
-
-//  <Card>
-//           <CardHeader>
-//             <CardTitle className="text-base font-semibold">
-//               Card Title
-//             </CardTitle>
-//             <div className="flex items-baseline gap-1">
-//               <CardTitle className=" text-3xl font-bold">USD 15</CardTitle>
-//               <CardDescription>/month</CardDescription>
-//             </div>
-//           </CardHeader>
-//           <CardContent className="mt-4">
-//             <Button variant={"default"} className="w-full" disabled>
-//               Start for free
-//             </Button>
-//           </CardContent>
-//           <div className="mb-4 px-6">
-//             <Separator />
-//           </div>
-//           <CardContent className="">Features</CardContent>
-//         </Card>

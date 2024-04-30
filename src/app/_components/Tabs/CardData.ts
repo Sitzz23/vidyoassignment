@@ -74,19 +74,19 @@ const data = {
     },
     essential: {
       title: "Essential",
-      desc: "Billed annually at 67% off",
+      desc: "22%",
       cost: 14,
       features: features.essential,
     },
     growth: {
       title: "Growth",
-      desc: "Billed annually at 62% off",
+      desc: "35%",
       cost: 16.5,
       features: features.growth,
     },
     custom: {
       title: "Custom",
-      desc: "Billed annually at 65% off",
+      desc: "42%",
       cost: null,
       features: features.custom,
     },
