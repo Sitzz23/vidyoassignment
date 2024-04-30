@@ -33,11 +33,14 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
   const planData =
     duration === PlanDuration.Monthly ? data.monthly : data.yearly;
 
-  const [monthCost, setMonthCost] = useState(57);
+  const [customCost, setCustomCost] = useState(
+    duration === PlanDuration.Monthly ? 52 : 19,
+  );
 
   function newMonthCost(selectedMins: number) {
-    const cost = Math.round((selectedMins / 100) * 4.75);
-    setMonthCost(cost);
+    const costPerMin = duration === PlanDuration.Monthly ? 5.8 : 2.1;
+    const cost = Math.round((selectedMins / 100) * costPerMin);
+    setCustomCost(cost);
   }
 
   const [value, setValue] = useState([125]);
@@ -94,7 +97,7 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                 <div className="flex items-baseline gap-1">
                   <CardTitle className="pt-2 text-3xl font-bold">
                     USD&nbsp;
-                    {plan === "custom" ? monthCost : planData[plan]?.cost}
+                    {plan === "custom" ? customCost : planData[plan]?.cost}
                   </CardTitle>
                   <CardTitle className="text-sm">/month</CardTitle>
                 </div>
@@ -141,7 +144,7 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                   <div className="flex flex-col justify-start gap-1">
                     <span className="text-sm">Select minutes</span>
                     <Select
-                      defaultValue="1200"
+                      defaultValue="900"
                       onValueChange={(value) => newMonthCost(Number(value))}
                     >
                       <SelectTrigger className="w-full">
