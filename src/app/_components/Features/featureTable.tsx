@@ -23,7 +23,7 @@ export function FeatureTable() {
     <div className="w-full overflow-clip rounded-md border">
       <Table className=" shadow-md">
         <TableHeader className="">
-          <TableRow className="bg-[#FAFAF8]">
+          <TableRow className="bg-[#F5F7F2]">
             <TableHead className=" font-medium text-zinc-950">
               Features
             </TableHead>
@@ -31,7 +31,9 @@ export function FeatureTable() {
             <TableHead className=" font-normal text-zinc-950">
               Essential
             </TableHead>
-            <TableHead className=" font-normal text-zinc-950">Growth</TableHead>
+            <TableHead className="  border-b-2 border-zinc-950 bg-[#FAFAF8] font-normal text-zinc-950">
+              Growth
+            </TableHead>
             <TableHead className=" font-normal text-zinc-950">Custom</TableHead>
           </TableRow>
         </TableHeader>
@@ -83,7 +85,11 @@ export function FeatureTable() {
                         <TableCell>{feat.Feature}</TableCell>
                         <TableCell>{feat.Free}</TableCell>
                         <TableCell>{feat.Essential}</TableCell>
-                        <TableCell>{feat.Growth}</TableCell>
+                        <TableCell
+                          className={`${index % 2 !== 0 ? "bg-[#FAFAF8]" : "bg-[#EEEEE9]"} `}
+                        >
+                          {feat.Growth}
+                        </TableCell>
                         <TableCell>{feat.Custom}</TableCell>
                       </TableRow>
                     ))}
