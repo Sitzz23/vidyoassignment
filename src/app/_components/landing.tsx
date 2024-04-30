@@ -1,6 +1,6 @@
 import Balancer from "react-wrap-balancer";
 import TabPlan from "./Tabs/tabplan";
-import { TableDemo } from "./Features/featureTable";
+import { FeatureTable } from "./Features/featureTable";
 
 const Landing = () => {
   return (
@@ -16,7 +16,7 @@ const Landing = () => {
         </p>
       </div>
       <TabPlan />
-      <TableDemo />
+      <FeatureTable />
     </div>
   );
 };
