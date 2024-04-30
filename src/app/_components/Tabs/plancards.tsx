@@ -32,7 +32,14 @@ import {
 const PlanCards = ({ duration }: { duration: PlanDuration }) => {
   const planData =
     duration === PlanDuration.Monthly ? data.monthly : data.yearly;
-  const customCost = 99;
+
+  const [monthCost, setMonthCost] = useState(57);
+
+  function newMonthCost(selectedMins: number) {
+    const cost = Math.round((selectedMins / 100) * 4.75);
+    setMonthCost(cost);
+  }
+
   const [value, setValue] = useState([125]);
   return (
     <div className="mt-8 flex flex-col gap-8">
@@ -87,12 +94,14 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                 <div className="flex items-baseline gap-1">
                   <CardTitle className="pt-2 text-3xl font-bold">
                     USD&nbsp;
-                    {plan === "custom" ? customCost : planData[plan]?.cost}
+                    {plan === "custom" ? monthCost : planData[plan]?.cost}
                   </CardTitle>
                   <CardTitle className="text-sm">/month</CardTitle>
                 </div>
-                {planData === data.yearly && plan !== "free" && (
-                  <CardDescription className="text-xs">
+                {planData === data.yearly && (
+                  <CardDescription
+                    className={` text-xs ${plan === "free" && "select-none text-transparent"}`}
+                  >
                     Billed annually at{" "}
                     <strong>{planData[plan]?.desc} off</strong>
                   </CardDescription>
@@ -106,7 +115,7 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                 ) : (
                   <Button
                     variant={plan === "growth" ? "default" : "outline"}
-                    className={`w-full ${plan === "growth" ? "bg-[#943DEC] text-[#F6F6F2]" : "text-zinc-950"}`}
+                    className={`w-full ${plan === "growth" ? "bg-[#b7f564] text-zinc-950" : "text-zinc-950"}`}
                   >
                     Choose this plan
                     <svg
@@ -131,7 +140,10 @@ const PlanCards = ({ duration }: { duration: PlanDuration }) => {
                 {plan === "custom" && (
                   <div className="flex flex-col justify-start gap-1">
                     <span className="text-sm">Select minutes</span>
-                    <Select defaultValue="1200">
+                    <Select
+                      defaultValue="1200"
+                      onValueChange={(value) => newMonthCost(Number(value))}
+                    >
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Select minutes" />
                       </SelectTrigger>
