@@ -3,9 +3,12 @@
 - [x] Deploy project
 - [x] Scaffold project
 - [x] hero section
-- [ ] plan slider and cards
-- [ ] table scaffold
-- [ ] table row accordion
-- [ ] table data
-- [ ] add zustand for state management
-- [ ] logic for plan suggestion
+- [x] plan slider
+- [x] pricing cards with mock data 
+- [x] table scaffold
+- [x] table row accordion
+- [x] table data
+- [x] layout styling
+- [x] responsive breakpoints
+- [x] floating button to the left
+ 
